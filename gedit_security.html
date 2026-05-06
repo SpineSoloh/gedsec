@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GEDIT Security Company Limited | Securing Today. Protecting Tomorrow.</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <img src="data:image/png;base64,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" alt="GEDIT" class="loader-logo">
+  <div class="loader-bar"></div>
+  <p class="loader-text">Loading Secure Connection</p>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-brand">
+    <img src="data:image/png;base64,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" alt="GEDIT Security">
+    <div class="nav-brand-text">
+      <span class="nav-brand-name">GEDIT SECURITY</span>
+      <span class="nav-brand-sub">Company Limited</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#why">About</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#testimonials">Clients</a></li>
+    <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-scan"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span class="dot"></span>
+        <span>Kenya's Premier Security Provider</span>
+      </div>
+      <h1 class="hero-h1">
+        <span class="line-dim">Kisumu &mdash; Nationwide</span>
+        Your Security,<br>
+        <span class="line-accent">Our Mission.</span>
+      </h1>
+      <p class="hero-desc">
+        GEDIT Security Company Limited delivers elite, intelligence-driven security across Kenya — from armed physical guarding to advanced cyber defence and K-9 units.
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">→ Request Consultation</a>
+        <a href="#services" class="btn-ghost">↓ Our Services</a>
+      </div>
+      <div class="hero-metrics">
+        <div class="metric">
+          <div class="metric-num">6<sup>+</sup></div>
+          <div class="metric-label">Security Divisions</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">24/7</div>
+          <div class="metric-label">Always Operational</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">100<sup>%</sup></div>
+          <div class="metric-label">Client Commitment</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-logo-frame">
+        <div class="orbit-dot"></div>
+        <div class="orbit-dot"></div>
+        <div class="hero-logo-inner">
+          <img src="data:image/png;base64,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" alt="GEDIT Security Logo">
+        </div>
+        <div class="badge">
+          <span class="badge-icon">🛡️</span>
+          <div class="badge-text">
+            <strong>VERIFIED</strong>
+            <span>Licensed Operator</span>
+          </div>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">📡</span>
+          <div class="badge-text">
+            <strong>24/7 MONITORING</strong>
+            <span>Active Response</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="ticker">
+    <span class="ticker-item">Physical Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Access Control <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Surveillance Systems <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Cyber Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Events Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">K-9 Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Kisumu, Kenya <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Securing Today. Protecting Tomorrow. <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Physical Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Access Control <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Surveillance Systems <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Cyber Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Events Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">K-9 Security <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Kisumu, Kenya <span class="ticker-sep">◆</span></span>
+    <span class="ticker-item">Securing Today. Protecting Tomorrow. <span class="ticker-sep">◆</span></span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <div>
+      <div class="section-label">What We Offer</div>
+      <h2 class="section-title">Comprehensive <span>Security</span><br>Solutions</h2>
+    </div>
+    <div class="section-count">06</div>
+  </div>
+
+  <div class="services-grid">
+    <div class="svc-card reveal">
+      <span class="svc-number">01</span>
+      <div class="svc-icon">🛡️</div>
+      <div class="svc-name">Physical Security</div>
+      <p class="svc-desc">Trained, uniformed guards providing round-the-clock protection for premises, assets, and personnel. Armed and unarmed options available.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-number">02</span>
+      <div class="svc-icon">🔐</div>
+      <div class="svc-name">Access Control</div>
+      <p class="svc-desc">Biometric systems, key-card management, and smart authentication to restrict and log all entry points across your premises.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-number">03</span>
+      <div class="svc-icon">📷</div>
+      <div class="svc-name">Surveillance System</div>
+      <p class="svc-desc">CCTV installation, real-time monitoring, and intelligent analytics providing complete situational awareness of your environment.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-number">04</span>
+      <div class="svc-icon">💻</div>
+      <div class="svc-name">Cyber Security</div>
+      <p class="svc-desc">Protecting your digital infrastructure from threats, breaches, and attacks. Includes penetration testing, monitoring, and incident response.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-number">05</span>
+      <div class="svc-icon">🎪</div>
+      <div class="svc-name">Events Security</div>
+      <p class="svc-desc">Professional crowd management and vetted security personnel for corporate events, concerts, VIP functions, and high-profile gatherings.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+    <div class="svc-card reveal">
+      <span class="svc-number">06</span>
+      <div class="svc-icon">🐕</div>
+      <div class="svc-name">K-9 Security</div>
+      <p class="svc-desc">Highly-trained security dogs and expert handlers for patrol, narcotics/explosives detection, and elite perimeter deterrence.</p>
+      <a href="#contact" class="svc-link">Enquire →</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="stats-grid">
+    <div class="stat-item reveal">
+      <div class="stat-value"><span>6</span>+</div>
+      <div class="stat-desc">Specialized Divisions</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">24<span>/7</span></div>
+      <div class="stat-desc">Operational Coverage</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">100<span>%</span></div>
+      <div class="stat-desc">Licensed & Compliant</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-value">0<span>%</span></div>
+      <div class="stat-desc">Compromise on Safety</div>
+      <div class="stat-bar"></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div class="why-text reveal">
+      <div class="section-label">Why Choose GEDIT</div>
+      <h2 class="section-title" style="color:var(--white)">Built on <span>Trust.</span><br>Powered by <span>Excellence.</span></h2>
+      <p class="why-intro">We don't just deploy guards — we deploy strategies. Every GEDIT engagement begins with a detailed threat assessment, delivering a tailored security architecture that evolves with your risk landscape.</p>
+      <div class="why-certs">
+        <span class="cert-badge">Licensed Operator</span>
+        <span class="cert-badge">Vetted Personnel</span>
+        <span class="cert-badge">Insured & Bonded</span>
+        <span class="cert-badge">Kenya Compliant</span>
+      </div>
+    </div>
+    <div class="why-pillars">
+      <div class="pillar reveal">
+        <span class="pillar-num">01</span>
+        <div class="pillar-content">
+          <div class="pillar-title">Rapid Response</div>
+          <p class="pillar-desc">Our teams are trained for decisive, swift action — minimising risk and damage in any security incident within minutes.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-num">02</span>
+        <div class="pillar-content">
+          <div class="pillar-title">Trained Professionals</div>
+          <p class="pillar-desc">Every GEDIT operative undergoes rigorous selection, training in security protocols, conflict resolution, and emergency response.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-num">03</span>
+        <div class="pillar-content">
+          <div class="pillar-title">Modern Technology</div>
+          <p class="pillar-desc">We leverage the latest surveillance, access control, and cyber tools — keeping your protection ahead of evolving threats.</p>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <span class="pillar-num">04</span>        <div class="pillar-title">Tailored Solutions</div>
+          <p class="pillar-desc">No two clients are alike. We craft bespoke security plans matched to your specific environment, industry, and risk profile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="threat-banner">
+  <div class="threat-inner">
+    <div class="threat-text">
+      <h2>Is Your Business <br>Fully Protected?</h2>
+      <p>Don't wait for a security incident. Book a free, no-obligation threat assessment with our senior consultants today.</p>
+    </div>
+    <div class="threat-action">
+      <a href="#contact" class="btn-white">→ Free Security Audit</a>
+    </div>
+  </div>
+</div>
+
+<section id="process">
+  <div class="section-header reveal" style="max-width:1200px;margin:0 auto 0">
+    <div>
+      <div class="section-label">How We Work</div>
+      <h2 class="section-title" style="color:var(--navy-dark)">Our <span>Engagement</span> Process</h2>
+    </div>
+  </div>
+  <div class="process-steps">
+    <div class="step reveal"><div class="step-num">01</div><div class="step-title">Consultation</div><p class="step-desc">We meet to understand your security challenges, risks, and objectives in detail.</p></div>
+    <div class="step reveal"><div class="step-num">02</div><div class="step-title">Assessment</div><p class="step-desc">Our experts conduct a thorough on-site threat and vulnerability assessment.</p></div>
+    <div class="step reveal"><div class="step-num">03</div><div class="step-title">Deployment</div><p class="step-desc">Vetted, trained personnel and technology deployed to your exact specification.</p></div>
+    <div class="step reveal"><div class="step-num">04</div><div class="step-title">Monitoring</div><p class="step-desc">Continuous oversight, reporting, and adaptive response to keep you protected.</p></div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="section-header reveal" style="max-width:1200px;margin:0 auto 0">
+    <div>
+      <div class="section-label">Client Voices</div>
+      <h2 class="section-title">What Our <span>Clients</span> Say</h2>
+    </div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">GEDIT's physical security team transformed how we manage access across our three facilities. Professional, responsive, and thorough — exactly what we needed.</p>
+      <div class="testi-author"><div class="testi-avatar">JM</div><div><div class="testi-name">James Mwangi</div><div class="testi-role">Operations Director, Kisumu Logistics Group</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">We contracted GEDIT for our annual summit with 500+ attendees. Their events security team was impeccable. Zero incidents, total professionalism.</p>
+      <div class="testi-author"><div class="testi-avatar">AW</div><div><div class="testi-name">Amina Waweru</div><div class="testi-role">CEO, East Africa Conferences Ltd</div></div></div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-stars">★★★★★</div>
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The cyber security audit uncovered vulnerabilities we had no idea existed. GEDIT remediated everything within days. Couldn't recommend them more highly.</p>
+      <div class="testi-author"><div class="testi-avatar">DK</div><div><div class="testi-name">David Kamau</div><div class="testi-role">CTO, Savannah Fintech</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="section-label">Get In Touch</div>
+      <h2 class="section-title" style="color:var(--white);margin-bottom:16px">Request a <span>Security</span> Consultation</h2>
+      <p class="contact-blurb">Our senior consultants are ready to assess your security needs and design a solution that fits. Reach out for a confidential discussion.</p>
+      <div class="contact-items">
+        <div class="contact-item"><div class="contact-icon">📧</div><div><div class="contact-label">Email</div><div class="contact-value">info@geditsecurity.co.ke</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">Phone</div><div class="contact-value">+254 700 000 000</div></div></div>
+        <div class="contact-item"><div class="contact-icon">📍</div><div><div class="contact-label">Location</div><div class="contact-value">Kisumu, Kenya — Serving Nationwide</div></div></div>
+        <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">Availability</div><div class="contact-value">24 Hours / 7 Days / 365 Days</div></div></div>
+      </div>
+    </div>
+    <form class="contact-form reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Full Name *</label><input type="text" placeholder="John Doe" required></div>
+        <div class="form-group"><label>Company</label><input type="text" placeholder="Your Company Ltd"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email Address *</label><input type="email" placeholder="you@company.com" required></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+254 700 000 000"></div>
+      </div>
+      <div class="form-group"><label>Service Required *</label>
+        <select required>
+          <option value="">— Select a service —</option>
+          <option>Physical Security</option><option>Access Control System</option>
+          <option>Surveillance System</option><option>Cyber Security</option>
+          <option>Events Security</option><option>K-9 Security</option>
+          <option>Multiple / Integrated Solution</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Describe your security needs, premises size, timeline…"></textarea></div>
+      <label class="urgency-check"><input type="checkbox"> This is urgent — respond within 2 hours</label>
+      <button type="submit" class="form-submit">→ Send Secure Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-brand-name">GEDIT SECURITY</div>
+      <div class="footer-brand-tag">Company Limited — Kisumu, Kenya</div>
+      <p class="footer-brand-desc">Kenya's trusted security partner delivering comprehensive protection with professionalism, technology, and unwavering commitment.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">𝕏</a>
+        <a href="#" class="social-btn">▶</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Services</h4><ul>
+      <li><a href="#services">Physical Security</a></li>
+      <li><a href="#services">Access Control</a></li>
+      <li><a href="#services">Surveillance</a></li>
+      <li><a href="#services">Cyber Security</a></li>
+      <li><a href="#services">Events Security</a></li>
+      <li><a href="#services">K-9 Security</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Company</h4><ul>
+      <li><a href="#why">About Us</a></li>
+      <li><a href="#process">Our Process</a></li>
+      <li><a href="#testimonials">Clients</a></li>
+      <li><a href="#contact">Careers</a></li>
+      <li><a href="#contact">News & Insights</a></li>
+    </ul></div>
+    <div class="footer-col"><h4>Contact</h4><ul>
+      <li><a href="tel:+254700000000">+254 700 000 000</a></li>
+      <li><a href="mailto:info@geditsecurity.co.ke">info@gedit.co.ke</a></li>
+      <li><a href="#contact">Kisumu, Kenya</a></li>
+      <li><a href="#contact">Get a Quote</a></li>
+      <li><a href="#contact">Emergency Line</a></li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2025 GEDIT Security Company Limited. All rights reserved.</p>
+    <div class="footer-legal">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#hero" id="scrollTop">↑</a>
+
+<script>
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const l = document.getElementById('loader');
+    if(l){ l.style.opacity='0'; setTimeout(()=>l.style.display='none',400); }
+  }, 1600);
+});
+const cursor = document.getElementById('cursor');
+const cursorRing = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  if(cursor){ cursor.style.left=e.clientX-5+'px'; cursor.style.top=e.clientY-5+'px'; }
+  if(cursorRing){ cursorRing.style.left=e.clientX-18+'px'; cursorRing.style.top=e.clientY-18+'px'; }
+});
+document.querySelectorAll('a,button,.svc-card,.pillar,.stat-item').forEach(el => {
+  el.addEventListener('mouseenter',()=>{ if(cursor){cursor.style.transform='scale(2)';} if(cursorRing){cursorRing.style.transform='scale(1.5)';} });
+  el.addEventListener('mouseleave',()=>{ if(cursor){cursor.style.transform='scale(1)';} if(cursorRing){cursorRing.style.transform='scale(1)';} });
+});
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if(nav) nav.classList.toggle('scrolled', window.scrollY > 60);
+  const st = document.getElementById('scrollTop');
+  if(st) st.classList.toggle('visible', window.scrollY > 400);
+});
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e,i) => { if(e.isIntersecting) setTimeout(()=>e.target.classList.add('visible'), i*80); });
+}, {threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  btn.textContent = "✓ Sent — We'll contact you shortly!";
+  btn.style.background = 'var(--navy-mid)';
+  setTimeout(() => { btn.textContent='→ Send Secure Message'; btn.style.background=''; e.target.reset(); }, 4000);
+}
+</script>
+</body>
+</html>
